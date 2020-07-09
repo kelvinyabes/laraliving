@@ -10,9 +10,9 @@
     <form action="/pertanyaan" method="post">
         @csrf
         <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Nama:</label>
+            <label for="name" class="col-sm-2 col-form-label">Judul:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Judul">
             </div>
         </div>
      
@@ -23,6 +23,10 @@
                 <textarea name="pertanyaan" class="form-control my-editor">{!! old('pertanyaan', $p ?? '') !!}</textarea>
             </div>
         </div>
+        @php
+            $user_id = Auth::id();
+        @endphp
+        <input hidden name="user_id" value="{{ $user_id }}">
         <input hidden name="tgl_dibuat" value="{{ Carbon\Carbon::now() }} ">
         <input hidden name="tgl_diperbarui" value="{{ Carbon\Carbon::now() }} ">
         <button type="submit" class="btn btn-primary">Submit</button>
