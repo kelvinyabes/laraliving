@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>LaraHub | Forum</title>
+  <title>LaraLiving | Forum Diskusi</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="{{ asset('/adminlte/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  @stack('script-head')
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -61,8 +64,8 @@
 <script src="{{ asset ('/adminlte//dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset ('/adminlte/dist/js/demo.js')}}"></script>
-{{-- 
-@stack('scripts') --}}
+
+@stack('scripts')
 
 </body>
 </html>
