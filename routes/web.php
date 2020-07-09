@@ -24,7 +24,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update'); // menyimpan perubahan dari form edit
     Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy'); // menghapus data dari id
     Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
-    Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');    
+    Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
+
+    Route::get('/pertanyaan/user/{user_id}','PertanyaanController@index2');
 });
 
 Auth::routes();
