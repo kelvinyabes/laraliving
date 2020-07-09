@@ -20,8 +20,8 @@
                           <p class="h3">Selamat Datang di 
                               <small class="text-muted">Laraliving</small>
                           </p>
-                            <a href="{{ url('/pertanyaan/user/'. Auth::user()->id) }}" class="btn btn-success btn-lg">Daftar Pertanyaan</a>
-                          <a href="/pertanyaan" class="btn btn-info btn-lg">Pertanyaanku</a>
+                            <a href="/pertanyaan" class="btn btn-success btn-lg">Daftar Pertanyaan</a>
+                          <a href="{{ url('/pertanyaan/user/'. Auth::user()->id) }}" class="btn btn-info btn-lg">Pertanyaanku</a>
                         </div>
                     </div>
 
