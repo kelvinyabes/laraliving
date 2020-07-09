@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relationship one-to-many ke table pertanyaan
+    public function pertanyaan()
+    {
+        return $this->hasMany('App\Models\PertanyaanModels', 'user_id');
+    }
+
+    public function jawaban()
+    {
+        return $this->hasMany('App\Models\JawabanModel', 'user_id');
+    }
 }
