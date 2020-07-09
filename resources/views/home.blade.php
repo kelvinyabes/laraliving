@@ -14,7 +14,17 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <div class="card">
+                        <h3 class="card-title mx-auto">Hallo {{ Auth::user()->name }}</h3>
+                        <div class="card-body mx-auto">
+                          <p class="h3">Selamat Datang di 
+                              <small class="text-muted">Laraliving</small>
+                          </p>
+                            <a href="{{ url('/pertanyaan/user/'. Auth::user()->id) }}" class="btn btn-success btn-lg">Daftar Pertanyaan</a>
+                          <a href="/pertanyaan" class="btn btn-info btn-lg">Pertanyaanku</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
