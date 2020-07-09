@@ -18,8 +18,8 @@
             <tbody>
                 @foreach ($jawaban as $jawab)
                 <tr>
-                    <td>{{ $jawab->pertanyaan_id}}</td>
-                    <td>{{ $jawab->jawaban }}</td>
+                    <td>{!! $jawab->pertanyaan_id !!}</td>
+                    <td>{!! $jawab->jawaban !!}</td>
                 </tr>
                 @endforeach
             </tbody>
