@@ -17,7 +17,7 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nama</th>
+      <th scope="col">Judul</th>
       <th scope="col">Pertanyaan</th>
       <th scope="col">Jawaban</th>
       <th scope="col">Choice</th>
