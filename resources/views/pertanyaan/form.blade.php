@@ -20,7 +20,7 @@
             <label for="pertanyaan" class="col-sm-2 col-form-label">Pertanyaan:</label>
             <div class="col-sm-10">
                 {{-- <input type="text" class="form-control" id="pertanyaan" name="pertanyaan" placeholder="Enter Pertanyaan"> --}}
-                <textarea name="pertanyaan" class="form-control my-editor">{!! old('pertanyaan', $pertanyaan ?? '') !!}</textarea>
+                <textarea name="pertanyaan" class="form-control my-editor">{!! old('pertanyaan', $p ?? '') !!}</textarea>
             </div>
         </div>
         <input hidden name="tgl_dibuat" value="{{ Carbon\Carbon::now() }} ">

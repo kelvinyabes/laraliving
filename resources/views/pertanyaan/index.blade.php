@@ -42,27 +42,29 @@
             @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
       </td>
-    </tr>  
+    </tr>
+    <table>
+      <td>
+        <form action=" {{ url('/jawaban/'.$p->pertanyaan_id) }} " method="post">
+          @csrf     
+          <div class="form-group row">
+              <label for="jawaban" class="col-sm-2 col-form-label">Jawaban:</label>
+              <div class="col-sm-10">
+                  {{-- <input type="text" class="form-control" id="jawaban" name="jawaban" placeholder="Enter Jawaban"> --}}
+                  <textarea name="jawaban" class="form-control my-editor">{!! old('jawaban', $jawaban ?? '') !!}</textarea>
+                  <input hidden name="pertanyaan_id" value="{{ $p->pertanyaan_id }} ">
+                  <input hidden name="tgl_dibuat" value="{{ Carbon\Carbon::now() }} ">
+                  <input hidden name="tgl_diperbarui" value="{{ Carbon\Carbon::now() }} ">
+                  <button type="submit" class="btn btn-primary mt-3">Submit Jawaban</button>
+              </div>
+          </div>
+        </form> 
+      </td>
+      </div>      
+    </table>  
     @endforeach
   </tbody>
 </table>
-<td>
-  <form action=" {{ url('/jawaban/'.$p->pertanyaan_id) }} " method="post">
-    @csrf     
-    <div class="form-group row">
-        <label for="jawaban" class="col-sm-2 col-form-label">Jawaban:</label>
-        <div class="col-sm-10">
-            {{-- <input type="text" class="form-control" id="jawaban" name="jawaban" placeholder="Enter Jawaban"> --}}
-            <textarea name="jawaban" class="form-control my-editor">{!! old('jawaban', $jawaban ?? '') !!}</textarea>
-            <input hidden name="pertanyaan_id" value="{{ $p->pertanyaan_id }} ">
-            <input hidden name="tgl_dibuat" value="{{ Carbon\Carbon::now() }} ">
-            <input hidden name="tgl_diperbarui" value="{{ Carbon\Carbon::now() }} ">
-            <button type="submit" class="btn btn-primary mt-3">Submit Jawaban</button>
-        </div>
-    </div>
-  </form> 
-</td>
-</div>
 @endsection
 
 @push('scripts')
