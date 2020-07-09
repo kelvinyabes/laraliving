@@ -27,8 +27,8 @@
     @foreach ($pertanyaan as $key => $p)
     <tr>
       <td> {{ $key+1 }} </td>
-      <td> {{ $p ->name }} </td>
-      <td> {!! $p ->pertanyaan !!} </td>
+      <td> {{ $p->name }} </td>
+      <td> {{ $p->pertanyaan }} </td>
       <td>
         <a href="{!! url('/jawaban/'.$p->pertanyaan_id) !!} ">
           <button class="btn btn-success">Lihat Jawaban</button>
