@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 //Model custom
 use App\Models\PertanyaanModel;
 
@@ -27,6 +27,7 @@ class PertanyaanController extends Controller
         $new_pertanyaan = new Pertanyaan;
         $new_pertanyaan->name = $request['name'];
         $new_pertanyaan->pertanyaan = $request['pertanyaan'];
+        $new_pertanyaan->user_id = Auth::id();
 
         $new_pertanyaan->save();
         return redirect('/pertanyaan');
@@ -57,5 +58,12 @@ class PertanyaanController extends Controller
     public function destroy($pertanyaan_id){
         $deleted = PertanyaanModel::destroy($pertanyaan_id);
         return redirect('/pertanyaan');
+    }
+
+    //menampilkan Page Pertanyaanku
+    public function index2($user_id)
+    {
+        $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
+        view('pertanyaan.index2', compact('pertanyaan'));
     }
 }
