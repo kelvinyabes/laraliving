@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="card">
-    <div class="card-head">
-        <h3 class="card-title">Jawaban</h3>
+    <div class="card-head mt-2 ml-3">
+        <h2 class="card-title">Jawaban</h2>
     </div>
     <div class="card-body">
         @if (!empty($jawaban))
@@ -27,6 +27,7 @@
         @else
             Belum Ada Jawaban
         @endif
+        <br><br>
         <a href="/pertanyaan" class="btn btn-danger form-control">Kembali</a>
     </div>
 </div>
