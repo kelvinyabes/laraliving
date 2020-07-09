@@ -17,8 +17,6 @@ class CreateJawabanTable extends Migration
             $table->bigIncrements('jawaban_id');
             $table->string('name');
             $table->string('jawaban');
-            $table->string('tgl_dibuat')->nullable();
-            $table->string('tgl_diperbarui')->nullable();
             $table->timestamps();
         });
     }

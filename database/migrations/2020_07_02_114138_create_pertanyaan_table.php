@@ -17,8 +17,6 @@ class CreatePertanyaanTable extends Migration
             $table->bigIncrements('pertanyaan_id');
             $table->string('name');
             $table->string('pertanyaan');
-            $table->string('tgl_dibuat')->nullable();
-            $table->string('tgl_diperbarui')->nullable();
             $table->timestamps();
         });
     }
