@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/pertanyaan', 'PertanyaanController@index'); // menampilkan semua
     Route::get('/pertanyaan/create', 'PertanyaanController@create'); // menampilkan halaman form
     Route::post('/pertanyaan', 'PertanyaanController@store'); // menyimpan data
@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/jawaban/{pertanyaan_id}', 'JawabanController@store');
     Route::get('/jawaban/{pertanyaan_id}', 'JawabanController@index');
 
-    Route::get('/pertanyaan/user/{user_id}','PertanyaanController@index2');
+    Route::get('/pertanyaan/user/{user_id}', 'PertanyaanController@index2');
 });
 
 Auth::routes();
@@ -36,4 +36,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
-

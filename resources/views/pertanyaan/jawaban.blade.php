@@ -25,11 +25,11 @@
             </tbody>
         </table>
         @else
-            Belum Ada Jawaban
+        Belum Ada Jawaban
         @endif
         <br><br>
         <a href="/pertanyaan" class="btn btn-danger form-control">Kembali</a>
     </div>
 </div>
-    
+
 @endsection
