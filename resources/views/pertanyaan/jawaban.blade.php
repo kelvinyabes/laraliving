@@ -25,7 +25,7 @@
             </tbody>
         </table>
         @else
-        Belum Ada Jawaban
+        <h3>Belum Ada Jawaban</h3>
         @endif
         <br><br>
         <a href="/pertanyaan" class="btn btn-danger form-control">Kembali</a>
