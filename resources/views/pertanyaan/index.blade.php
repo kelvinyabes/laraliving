@@ -65,11 +65,10 @@
             </div>
           </form>
         </td>
-</div>
-</table>
+      </table>
+  </table> 
 @endforeach
-</tbody>
-</table>
+
 @endsection
 
 @push('scripts')
