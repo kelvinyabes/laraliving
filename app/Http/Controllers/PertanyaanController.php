@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //Model custom
 use App\Models\PertanyaanModel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 // model eloquent
 use App\Pertanyaan;
@@ -30,6 +31,9 @@ class PertanyaanController extends Controller
         $new_pertanyaan->user_id = Auth::id();
 
         $new_pertanyaan->save();
+
+        Alert::success('Berhasil !!', 'Berhasil menambahkan pertanyaan anda');
+
         return redirect('/pertanyaan');
     }
     
