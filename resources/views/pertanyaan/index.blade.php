@@ -5,7 +5,8 @@
 @endpush
 
 @section('content')
-<div class="ml-3 mt-3">
+
+  <div class="ml-3 mt-3">
 
   <h1>Data Pertanyaan</h1>
 
@@ -13,6 +14,7 @@
   Buat Pertanyaan Baru
 </a>
 
+<!--
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -64,7 +66,41 @@
     </table>  
     @endforeach
   </tbody>
-</table>
+</table> -->
+
+@foreach ($pertanyaan as $data)
+  <div class="card">
+    <div class="card-body">
+      <!-- Post -->
+      <div class="post">
+        <div class="user-block">
+          <h2><a href="/pertanyaan/{{ $data->pertanyaan_id }}">{{ $data->name }}</a></h2>
+          <p>Created At {{ $data->created_at }}</p>
+          <!-- /.user-block -->
+            <p class="h4">
+              {!! $data->pertanyaan !!}
+            </p>
+          <p>
+            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
+
+              count vote 
+
+          <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i></a>
+          </p>
+
+          <span class="float-right">
+            <a href="#" class="link-black text-md"> by 
+              <i class="far fa-user mr-1"> {{ $data->user->name}}</i>
+            </a>
+          </span>
+
+        </div>
+      <!-- /.post --> 
+    </div>
+  </div>   
+@endforeach
+
+
 @endsection
 
 @push('scripts')
