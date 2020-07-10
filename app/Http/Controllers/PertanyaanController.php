@@ -13,20 +13,23 @@ use RealRashid\SweetAlert\Facades\Alert;
 // model eloquent
 use App\Pertanyaan;
 use App\User;
+use App\Models\Tag;
 
 class PertanyaanController extends Controller
 {
-    
-    public function create(){
+
+    public function create()
+    {
         return view('pertanyaan.form');
     }
-    
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         // dd($request->all());
-        
+
         // cara custom model
         // $new_pertanyaan = PertanyaanModel::save($request->all());
-        
+
         // cara eloquent dengan instansiasi
         $new_pertanyaan = new Pertanyaan;
         $new_pertanyaan->name = $request['name'];
@@ -34,14 +37,30 @@ class PertanyaanController extends Controller
         $new_pertanyaan->user_id = Auth::id();
 
         $new_pertanyaan->save();
-        
+
+        $tagArr = explode(',', $request->tags);
+        $tagsMulti = [];
+        foreach ($tagArr as $strTag) {
+            $tagArrAssc["tag_name"] = $strTag;
+            $tagsMulti[] = $tagArrAssc;
+        }
+        // dd($tagsMulti);
+        // create tags
+        foreach ($tagsMulti as $tagCheck) {
+            $tag = Tag::firstOrCreate($tagCheck);
+            $new_pertanyaan->tags()->attach($tag->id);
+        }
+
+
+
         // sweetalert
         Alert::success('Berhasil !!');
 
         return redirect('/pertanyaan');
     }
-    
-    public function index(){
+
+    public function index()
+    {
         // $pertanyaan = PertanyaanModel::get_all();
         $pertanyaan = Pertanyaan::all();
         $user = User::all();
@@ -50,7 +69,7 @@ class PertanyaanController extends Controller
         // sweetalert
         Alert::success('Berhasil !!');
 
-        return view('pertanyaan.index', compact('pertanyaan','user'));
+        return view('pertanyaan.index', compact('pertanyaan', 'user'));
     }
 
     //menampilkan Page Pertanyaanku
@@ -58,32 +77,34 @@ class PertanyaanController extends Controller
     {
         $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
         return view('pertanyaan.index2', compact('pertanyaan'));
-        
+
         // sweetalert
         Alert::success('Berhasil !!');
 
         return view('pertanyaan.index', compact('pertanyaan'));
     }
 
-    public function show($pertanyaan_id){
+    public function show($pertanyaan_id)
+    {
         $pertanyaan = PertanyaanModel::find_by_id($pertanyaan_id);
         return view('pertanyaan.show', compact('pertanyaan'));
     }
 
-    public function edit($pertanyaan_id){
+    public function edit($pertanyaan_id)
+    {
         $pertanyaan = PertanyaanModel::find_by_id($pertanyaan_id);
-            return view('pertanyaan.edit', compact('pertanyaan'));
+        return view('pertanyaan.edit', compact('pertanyaan'));
     }
 
-    public function update($pertanyaan_id, Request $request){
+    public function update($pertanyaan_id, Request $request)
+    {
         $pertanyaan = PertanyaanModel::update($pertanyaan_id, $request->all());
         return redirect('/pertanyaan');
     }
 
-    public function destroy($pertanyaan_id){
+    public function destroy($pertanyaan_id)
+    {
         $deleted = PertanyaanModel::destroy($pertanyaan_id);
         return redirect('/pertanyaan');
     }
-
-    
 }

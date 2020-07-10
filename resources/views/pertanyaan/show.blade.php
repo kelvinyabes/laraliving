@@ -9,31 +9,34 @@
 </div>
 -->
 
-  <div class="card">
-    <div class="card-body">
-      <!-- Post -->
-      <div class="post">
-        <div class="user-block">
-          <h2><a href="/pertanyaan/{{ $pertanyaan->pertanyaan_id }}">{{ $pertanyaan->name }}</a></h2>
-          <p>Created At {{ $pertanyaan->created_at }}</p>
-          <!-- /.user-block -->
-          <h3>
-            <p>
-              {!! $pertanyaan->pertanyaan !!}
-            </p>
-          </h3>
-          <p>
-            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
+<div class="card">
+  <div class="card-body">
 
-              count vote 
+    <!-- Post -->
+    <div class="post">
+      <div class="user-block">
+        <h2><a href="/pertanyaan/{{ $pertanyaan->pertanyaan_id }}">{{ $pertanyaan->name }}</a></h2>
+        <p>Created At {{ $pertanyaan->created_at }}</p>
+
+        <!-- /.user-block -->
+        <h3>
+          <p>
+            {!! $pertanyaan->pertanyaan !!}
+          </p>
+        </h3>
+        {{--@foreach($pertanyaan->tags as $tag)
+        <button class="btn btn-default btn-sm"> {{$tag->tag_name}} </button>
+        @endforeach--}}
+        <p>
+          <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
+
+          count vote
 
           <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i></a>
-          </p>
+        </p>
 
-          
-
-        </div>
-      <!-- /.post --> 
+      </div>
+      <!-- /.post -->
     </div>
-  </div> 
-@endsection
+  </div>
+  @endsection
