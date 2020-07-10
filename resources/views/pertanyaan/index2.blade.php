@@ -1,15 +1,18 @@
 @extends('adminlte.master')
+
 @section('content')
 <div class="ml-3 mt-3">
     <!-- Page untuk menampilkan daftar pertanyaan berdasarkan id user -->
     <h1>Data Pertanyaan</h1>
-  <table class="table table-bordered">
+
+    <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Judul</th>
         <th scope="col">Pertanyaan</th>
         <th scope="col">Jawaban</th>
+        <th scope="col">Choice</th>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +32,7 @@
              <form action="/pertanyaan/{{ $p->pertanyaan_id }}" method="post" style="display:inline">
               @csrf  
               @method('DELETE')
-              <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
+            <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
         </td>
       </tr>
       @endforeach
