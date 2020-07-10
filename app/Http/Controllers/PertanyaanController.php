@@ -43,7 +43,22 @@ class PertanyaanController extends Controller
         $pertanyaan = Pertanyaan::all();
         $user = User::all();
         // dd($pertanyaan);
+        return view('pertanyaan.index', compact('pertanyaan','user'));
+    }
+
+    //menampilkan Page Pertanyaanku
+    public function index2($user_id)
+    {
+        $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
+        return view('pertanyaan.index2', compact('pertanyaan'));
+        Alert::success('Berhasil !!');
+
         return view('pertanyaan.index', compact('pertanyaan'));
+    }
+
+    public function show($pertanyaan_id){
+        $pertanyaan = PertanyaanModel::find_by_id($pertanyaan_id);
+        return view('pertanyaan.show', compact('pertanyaan'));
     }
 
     public function edit($pertanyaan_id){
