@@ -27,7 +27,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="/pertanyaan" class="nav-link">
-              <i class="nav-icon fa fa-question"></i>
+              <i class="nav-icon far fa-comments"></i>
               <p>
                 Pertanyaan
               </p>
