@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 //Model custom
 use App\Models\PertanyaanModel;
+use RealRashid\SweetAlert\Facades\Alert;
 
 // model eloquent
 use App\Pertanyaan;
@@ -31,6 +32,9 @@ class PertanyaanController extends Controller
         $new_pertanyaan->user_id = Auth::id();
 
         $new_pertanyaan->save();
+
+        Alert::success('Berhasil !!', 'Berhasil menambahkan pertanyaan anda');
+
         return redirect('/pertanyaan');
     }
     
@@ -39,19 +43,7 @@ class PertanyaanController extends Controller
         $pertanyaan = Pertanyaan::all();
         $user = User::all();
         // dd($pertanyaan);
-        return view('pertanyaan.index', compact('pertanyaan','user'));
-    }
-
-    //menampilkan Page Pertanyaanku
-    public function index2($user_id)
-    {
-        $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
-        return view('pertanyaan.index2', compact('pertanyaan'));
-    }
-
-    public function show($pertanyaan_id){
-        $pertanyaan = PertanyaanModel::find_by_id($pertanyaan_id);
-        return view('pertanyaan.show', compact('pertanyaan'));
+        return view('pertanyaan.index', compact('pertanyaan'));
     }
 
     public function edit($pertanyaan_id){
