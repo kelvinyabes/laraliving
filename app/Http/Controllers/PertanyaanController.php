@@ -41,8 +41,8 @@ class PertanyaanController extends Controller
         // $pertanyaan = PertanyaanModel::get_all();
         $pertanyaan = Pertanyaan::all();
         // dd($pertanyaan);
-        Alert::success('Login Berhasil !!', 'Selamat Datang');
-        
+        Alert::success('Berhasil !!');
+
         return view('pertanyaan.index', compact('pertanyaan'));
     }
 
