@@ -67,6 +67,7 @@
 
 @stack('scripts')
 
+<!-- sweetalert -->
 @include('sweetalert::alert')
 
 </body>

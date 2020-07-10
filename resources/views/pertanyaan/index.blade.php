@@ -5,42 +5,12 @@
 @endpush
 
 @section('content')
-
   <div class="ml-3 mt-3">
-
   <h1>Data Pertanyaan</h1>
-
   <a href="/pertanyaan/create" class="btn btn-primary mb-3">
     Buat Pertanyaan Baru
   </a>
 
-<!--
-<table class="table table-bordered">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Judul</th>
-      <th scope="col">Pertanyaan</th>
-      <th scope="col">Jawaban</th>
-      <th scope="col">Choice</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($pertanyaan as $key => $p)
-    <tr>
-      <td> {{ $key+1 }} </td>
-      <td> {{ $p->name }} </td>
-      <td> {!! $p->pertanyaan !!} </td>
-      <td>
-        <a href="{!! url('/jawaban/'.$p->pertanyaan_id) !!} ">
-          <button class="btn btn-success">Lihat Jawaban</button>
-        </a>
-      </td>
-      <td>
-        <a href="/pertanyaan/{{ $p->pertanyaan_id }}" class="btn btn-sm btn-info" >Show</a>
-           <a href="/pertanyaan/{{ $p->pertanyaan_id }}/edit" class="btn btn-sm btn-default" >Edit</a>  
-           <form action="/pertanyaan/{{ $p->pertanyaan_id }}" method="post" style="display:inline">
-            @csrf  
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -51,6 +21,35 @@
         <th scope="col">Choice</th>
       </tr>
     </thead>
+  
+    <tbody>
+      @foreach ($pertanyaan as $key => $p)
+      <tr>
+        <td> {{ $key+1 }} </td>
+        <td> {{ $p->name }} </td>
+        <td> {!! $p->pertanyaan !!} </td>
+        <td>
+          <a href="{!! url('/jawaban/'.$p->pertanyaan_id) !!} ">
+            <button class="btn btn-success">Lihat Jawaban</button>
+          </a>
+        </td>
+      
+        <td>
+          <a href="/pertanyaan/{{ $p->pertanyaan_id }}" class="btn btn-sm btn-info" >Show</a>
+            <a href="/pertanyaan/{{ $p->pertanyaan_id }}/edit" class="btn btn-sm btn-default" >Edit</a>  
+            <form action="/pertanyaan/{{ $p->pertanyaan_id }}" method="post" style="display:inline">
+              @csrf  
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Judul</th>
+        <th scope="col">Pertanyaan</th>
+        <th scope="col">Jawaban</th>
+        <th scope="col">Choice</th>
+      </tr>
+    </thead>
+  
     <tbody>
       @foreach ($pertanyaan as $key => $p)
       <tr>
@@ -126,16 +125,12 @@
           </span>
 
         </div>
-      <!-- /.post --> 
     </div>
   </div>   
 @endforeach
-
-
 @endsection
 
 @push('scripts')
-
 <script>
   var editor_config = {
     path_absolute: "/",
@@ -172,5 +167,4 @@
 
   tinymce.init(editor_config);
 </script>
-
 @endpush
