@@ -9,6 +9,7 @@ use App\Models\PertanyaanModel;
 
 // model eloquent
 use App\Pertanyaan;
+use App\User;
 
 class PertanyaanController extends Controller
 {
@@ -36,8 +37,16 @@ class PertanyaanController extends Controller
     public function index(){
         // $pertanyaan = PertanyaanModel::get_all();
         $pertanyaan = Pertanyaan::all();
+        $user = User::all();
         // dd($pertanyaan);
-        return view('pertanyaan.index', compact('pertanyaan'));
+        return view('pertanyaan.index', compact('pertanyaan','user'));
+    }
+
+    //menampilkan Page Pertanyaanku
+    public function index2($user_id)
+    {
+        $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
+        return view('pertanyaan.index2', compact('pertanyaan'));
     }
 
     public function show($pertanyaan_id){
@@ -60,10 +69,5 @@ class PertanyaanController extends Controller
         return redirect('/pertanyaan');
     }
 
-    //menampilkan Page Pertanyaanku
-    public function index2($user_id)
-    {
-        $pertanyaan = Pertanyaan::all()->where('user_id', $user_id);
-        view('pertanyaan.index2', compact('pertanyaan'));
-    }
+    
 }
