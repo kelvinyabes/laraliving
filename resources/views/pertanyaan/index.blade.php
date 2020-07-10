@@ -5,7 +5,8 @@
 @endpush
 
 @section('content')
-<div class="ml-3 mt-3">
+
+  <div class="ml-3 mt-3">
 
   <h1>Data Pertanyaan</h1>
 
@@ -13,6 +14,33 @@
     Buat Pertanyaan Baru
   </a>
 
+<!--
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Judul</th>
+      <th scope="col">Pertanyaan</th>
+      <th scope="col">Jawaban</th>
+      <th scope="col">Choice</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($pertanyaan as $key => $p)
+    <tr>
+      <td> {{ $key+1 }} </td>
+      <td> {{ $p->name }} </td>
+      <td> {!! $p->pertanyaan !!} </td>
+      <td>
+        <a href="{!! url('/jawaban/'.$p->pertanyaan_id) !!} ">
+          <button class="btn btn-success">Lihat Jawaban</button>
+        </a>
+      </td>
+      <td>
+        <a href="/pertanyaan/{{ $p->pertanyaan_id }}" class="btn btn-sm btn-info" >Show</a>
+           <a href="/pertanyaan/{{ $p->pertanyaan_id }}/edit" class="btn btn-sm btn-default" >Edit</a>  
+           <form action="/pertanyaan/{{ $p->pertanyaan_id }}" method="post" style="display:inline">
+            @csrf  
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -62,14 +90,48 @@
                 <input hidden name="pertanyaan_id" value="{{ $p->pertanyaan_id }} ">
                 <button type="submit" class="btn btn-primary mt-3">Submit Jawaban</button>
               </div>
-            </div>
-          </form>
-        </td>
-</div>
-</table>
+          </div>
+        </form> 
+      </td>
+      </div>      
+    </table>  
+    @endforeach
+  </tbody>
+</table> -->
+
+@foreach ($pertanyaan as $data)
+  <div class="card">
+    <div class="card-body">
+      <!-- Post -->
+      <div class="post">
+        <div class="user-block">
+          <h2><a href="/pertanyaan/{{ $data->pertanyaan_id }}">{{ $data->name }}</a></h2>
+          <p>Created At {{ $data->created_at }}</p>
+          <!-- /.user-block -->
+            <p class="h4">
+              {!! $data->pertanyaan !!}
+            </p>
+          <p>
+            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
+
+              count vote 
+
+          <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i></a>
+          </p>
+
+          <span class="float-right">
+            <a href="#" class="link-black text-md"> by 
+              <i class="far fa-user mr-1"> {{ $data->user->name}}</i>
+            </a>
+          </span>
+
+        </div>
+      <!-- /.post --> 
+    </div>
+  </div>   
 @endforeach
-</tbody>
-</table>
+
+
 @endsection
 
 @push('scripts')
