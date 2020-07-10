@@ -5,7 +5,7 @@
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">LaraHub</span>
+      <span class="brand-text font-weight-light">LaraLiving</span>
     </a>
 
     <!-- Sidebar -->
@@ -16,7 +16,7 @@
           <img src="{{ asset ('/adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Forum diskusi mantab mantab</a>
+          <a href="#" class="d-block">Forum diskusi mantab</a>
         </div>
       </div>
 
@@ -26,6 +26,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
+            <a href="/home" class="nav-link">
+              <i class="nav-icon far fa-home"></i>
+              <p>
+                Home
+              </p>
+            </a>
             <a href="/pertanyaan" class="nav-link">
               <i class="nav-icon far fa-comments"></i>
               <p>

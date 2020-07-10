@@ -35,6 +35,7 @@ class PertanyaanController extends Controller
 
         Alert::success('Berhasil !!', 'Berhasil menambahkan pertanyaan anda');
 
+        
         return redirect('/pertanyaan');
     }
     
