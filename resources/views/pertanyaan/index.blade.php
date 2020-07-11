@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-  <div class="ml-3 mt-3">
+<div class="ml-3 mt-3">
   <h1>Data Pertanyaan</h1>
   <a href="/pertanyaan/create" class="btn btn-primary mb-3">
     Buat Pertanyaan Baru
@@ -21,7 +21,7 @@
         <th scope="col">Choice</th>
       </tr>
     </thead>
-  
+
     <tbody>
       @foreach ($pertanyaan as $key => $p)
       <tr>
@@ -33,13 +33,13 @@
             <button class="btn btn-success">Lihat Jawaban</button>
           </a>
         </td>
-      
+
         <td>
-          <a href="/pertanyaan/{!! $p->pertanyaan_id !!}" class="btn btn-sm btn-info" >Show</a>
-            <a href="/pertanyaan/{!! $p->pertanyaan_id !!}/edit" class="btn btn-sm btn-default" >Edit</a>  
-            <form action="/pertanyaan/{!! $p->pertanyaan_id !!}" method="post" style="display:inline">
-              @csrf  
-              @method('DELETE')
+          <a href="/pertanyaan/{!! $p->pertanyaan_id !!}" class="btn btn-sm btn-info">Show</a>
+          <a href="/pertanyaan/{!! $p->pertanyaan_id !!}/edit" class="btn btn-sm btn-default">Edit</a>
+          <form action="/pertanyaan/{!! $p->pertanyaan_id !!}" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
             <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
           </form>
         </td>
@@ -69,9 +69,16 @@
     </table>  
     @endforeach
   </tbody>
+            </div>
+          </form>
+        </td>
+</div>
+</table>
+@endforeach
+</tbody>
 </table>
 
-                                      <!-- saya komen dulu ya biar bisa jalan -->
+<!-- saya komen dulu ya biar bisa jalan -->
 
 {{-- @foreach ($pertanyaan as $data)
   <div class="card">
@@ -80,28 +87,28 @@
       <div class="post">
         <div class="user-block">
           <h2><a href="/pertanyaan/{{ $data->pertanyaan_id }}">{{ $data->name }}</a></h2>
-          <p>Created At {{ $data->created_at }}</p>
-          <!-- /.user-block -->
-            <p class="h4">
-              {!! $data->pertanyaan !!}
-            </p>
-          <p>
-            <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
+<p>Created At {{ $data->created_at }}</p>
+<!-- /.user-block -->
+<p class="h4">
+  {!! $data->pertanyaan !!}
+</p>
+<p>
+  <a href="#" class="link-black text-sm mr-2"><i class="fas fa-thumbs-up mr-1"></i></a>
 
-              count vote 
+  count vote
 
-          <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i></a>
-          </p>
+  <a href="#" class="link-black text-sm"><i class="far fa-thumbs-down mr-1"></i></a>
+</p>
 
-          <span class="float-right">
-            <a href="#" class="link-black text-md"> by 
-              <i class="far fa-user mr-1"> {{ $data->user->name}}</i>
-            </a>
-          </span>
+<span class="float-right">
+  <a href="#" class="link-black text-md"> by
+    <i class="far fa-user mr-1"> {{ $data->user->name}}</i>
+  </a>
+</span>
 
-        </div>
-    </div>
-  </div>   
+</div>
+</div>
+</div>
 @endforeach --}}
 @endsection
 
