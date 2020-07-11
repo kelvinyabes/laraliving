@@ -69,7 +69,7 @@
     </table>  
     @endforeach
   </tbody>
-</table> -->
+</table>
 
                                       <!-- saya komen dulu ya biar bisa jalan -->
 
