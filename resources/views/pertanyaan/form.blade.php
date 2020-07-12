@@ -24,12 +24,12 @@
       </div>
     </div>
 
-    <div class="form-group row">
+    {{-- <div class="form-group row">
       <label for="tags" class="col-sm-2 col-form-label">Tags:</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" id="tags" name="tags" placeholder="Tags">
       </div>
-    </div>
+    </div> --}}
 
     @php
     $user_id = Auth::id();

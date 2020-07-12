@@ -62,21 +62,20 @@
                 <input hidden name="pertanyaan_id" value="{{ $p->pertanyaan_id }} ">
                 <button type="submit" class="btn btn-primary mt-3">Submit Jawaban</button>
               </div>
-          </div>
-        </form> 
-      </td>
-      </div>      
-    </table>  
+            </div>
+          </form> 
+        </td>     
+      </table>  
     @endforeach
   </tbody>
-            </div>
+            {{-- </div>
           </form>
         </td>
 </div>
 </table>
 @endforeach
 </tbody>
-</table>
+</table> --}}
 
 <!-- saya komen dulu ya biar bisa jalan -->
 
